@@ -17,6 +17,7 @@ import 'package:learn_flutter/row_column_widget/row_satu.dart';
 import 'package:learn_flutter/stack_widget/stack_dua.dart';
 import 'package:learn_flutter/stack_widget/stack_satu.dart';
 import 'package:learn_flutter/stack_widget/stack_tiga.dart';
+import 'screens/grid_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: GridProductPage(),
+        body: GridScreen(),
       ),
     );
   }
@@ -47,7 +48,7 @@ class HelloFlutter extends StatelessWidget {
       title: 'Mie Ayam',
       body: Center(
         child: Text(
-          'Hello Fazli',
+          'Hello dikzz',
           style: TextStyle(
               fontSize: 24,
               color: Colors.white,
