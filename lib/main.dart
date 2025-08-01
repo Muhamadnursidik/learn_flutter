@@ -19,6 +19,7 @@ import 'package:learn_flutter/stack_widget/stack_satu.dart';
 import 'package:learn_flutter/stack_widget/stack_tiga.dart';
 import 'screens/grid_screen.dart';
 import 'package:learn_flutter/form_widget/input_screen.dart';
+import 'package:learn_flutter/toko_online/grid_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: InputFormScreen(),
+        body: TokoGrid(),
       ),
     );
   }
