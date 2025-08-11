@@ -6,7 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -77,7 +77,7 @@ class PostController extends Controller
             'title'   => 'required|string|max:155|unique:posts,id,' . $id,
             'content' => 'required',
             'status'  => 'required',
-            'foto'    => 'required|image|mimes:jpg,png,jpeg|max:2048',
+            'foto'    => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -90,9 +90,9 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->status  = $request->status;
 
-        if ($request->HasFile('foto')) {
-            if ($post->foto && Storage::exsist('public/post/', $post->foto)) {
-                Storage::delete('public/post/', $post->foto);
+        if ($request->hasFile('foto')) {
+            if ($post->foto && Storage::disk('public')->exists($post->foto)) {
+                Storage::disk('public')->delete($post->foto);
             }
             $path       = $request->file('foto')->store('posts', 'public');
             $post->foto = $path;
